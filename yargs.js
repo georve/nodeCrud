@@ -29,12 +29,30 @@ const muestraest={
     nombre
 }
 
+const actualizar={
+    nombre,
+    asignatura:{
+        demand:true,
+        alias:'a'
+    },
+    nota:{
+        demand:true,
+        alias:'c'
+    }
+}
+
+const eliminar={
+    nombre
+}
+
 const argv=require('yargs')
            .command('crear','Crear un estudiantre',creacion)
            .command('mostrar','mostrar estudiantes')
            .command('mostrarest','mostrar estudiantes',muestraest)
            .command('mostrarmat','mostrar estudiantes matematicas')
            .command('mostrarpromedio','mostrar con mejores promedio')
+           .command('actualizar','actualiza un estudiante',actualizar)
+           .command('eliminar','elimina un estudiante',eliminar)
            .argv;
 
 module.exports={

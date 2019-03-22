@@ -63,10 +63,10 @@ const guardar=()=>{
 const printEstudiante=(est)=>{
     console.log(est.nombre);
     console.log('notas');
-    console.log('Matematicas '+est.matematicas);
-    console.log('Ingles '+est.ingles);
-    console.log('Programacion '+est.programacion);
-    console.log('Promedio '+est.promedio +'\n');
+    console.log('matematicas '+est.matematicas);
+    console.log('ingles '+est.ingles);
+    console.log('programacion '+est.programacion);
+    console.log('promedio '+est.promedio +'\n');
 
 
 }
@@ -118,9 +118,36 @@ const mostrarpromedio=()=>{
 
 }
 
+const actualizar=(nom,asig,calif)=>{
+    listar();
+    let found=listaEstudiantes.find(function(objectFound){
+        return objectFound.nombre==nom;
+    });
+    if(!found){
+        console.log('No encontrado');
+    }else{
+        found[asig]=calif;
+        guardar();
+    }
+
+}
+
+const eliminar=(nom)=>{
+    listar();
+    let nuevo=listaEstudiantes.filter(mat=>mat.nombre != nom);
+    if(nuevo.length==listaEstudiantes.length){
+        console.log('no se encontro el estudiante a eliminar');
+    }else{
+        listaEstudiantes=nuevo;
+        guardar();
+    }
+
+}
+
 module.exports={
     crear,
     mostrar,
     mostrarest,
-    mostrarpromedio
+    mostrarpromedio,
+    actualizar
 }

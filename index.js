@@ -24,6 +24,14 @@ switch(comando){
     funciones.mostrarpromedio();
     break;
 
+    case 'actualizar':
+    funciones.actualizar(argv.nombre,argv.asignatura,argv.nota);
+    break;
+
+    case 'eliminar':
+    funciones.eliminar(argv.nombre);
+    break;
+
     default:
     console.log('No ingreso una funcion existente');
 
